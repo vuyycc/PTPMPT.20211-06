@@ -15,6 +15,7 @@ import { Link as RouterLink, useHistory } from 'react-router-dom';
 import './home.css'
 
 const Home = () => {
+    document.body.style.backgroundColor= "#FFFF";
     const history = useHistory();
     //const { authData } = useAuthContext();
     const [loading, setLoading] = useState(false);
