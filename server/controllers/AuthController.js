@@ -5,15 +5,26 @@ const createToken = require('./utils/utils')
 const PlayerModel = require('../models/Player')
 
 
+
 module.exports.signup = async (req, res) => {
     try {
         const {Email, Password,Name} = req.body;
+        
+        const player = await PlayerModel.findByEmail(Email);
+        if(player) {
+            res.json({
+                status: 410,
+                error: "Tài khoản đã tồn tại !!"
+            })
+        }
 
         const salt = await bcrypt.genSalt();
         let hashPassword = await bcrypt.hash(Password, salt);
 
         const rad = Math.floor(Math.random()*51);
         const linkAvt = "images/"+rad+".png";
+
+
         
         const playerId = await PlayerModel.create({
             Email,

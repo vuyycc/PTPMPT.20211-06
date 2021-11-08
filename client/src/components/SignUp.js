@@ -4,7 +4,7 @@ import { login, signup } from '../axios';
 
 
 export default function SignUp() {
-    document.body.style.backgroundImage = "url(/images/hinhnen1.png)";
+    //document.body.style.backgroundImage = "url(/images/hinhnen1.png)";
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [rePassword, setRePassword] = useState("");
@@ -25,14 +25,21 @@ export default function SignUp() {
         }
         console.log(body);
 
-        // login(body).then(res => {
-        //     if( res.status == 'success'){
-        //         alert("Đăng ký thành công !!");
-        //         history.push('/login')
-        //     }else {
-        //         alert("Đăng ký không thành công !!");
-        //     }
-        // })
+        signup(body).then(res => {
+            console.log(res);
+            if( res.status == 200){
+                alert("Đăng ký thành công !!");
+                history.push('/')
+            }else if (res.status == 410) {
+                alert("Tài khoản đã tồn tại !!");
+                setEmail('');
+                setPassword('');
+            } else {
+                alert("Đăng ký không thành công !!");
+                setEmail('');
+                setPassword('');
+            }
+        })
 
     }
 

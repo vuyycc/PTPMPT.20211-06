@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import {login} from  '../axios'
 
 export default function Login({setToken}) {
-    document.body.style.backgroundImage = "url(/images/hinhnen1.png)";
+    //document.body.style.backgroundImage = "url(/images/hinhnen1.png)";
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')
     const history = useHistory();
@@ -17,7 +17,7 @@ export default function Login({setToken}) {
             const result = await login(body)
             console.log(result);
             setToken(result.data.data.token);
-            history.push("/")
+            history.push("/home")
         }catch (err) {
             console.log('error',err);
         }

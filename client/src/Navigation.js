@@ -27,9 +27,9 @@ export default function Navigation() {
         <Router>
             <Switch>
                 <Route path='/signup' component={SignUp} />
-                {!token ? <Login exact path='/login' setToken={loginSucess} />  :
+                {!token ? <Login exact path='/' setToken={loginSucess} />  :
                         (<> <Suspense fallback={<h1>Loading...</h1>}>
-                        <Route path='/' component={Home} />
+                        <Route path='/home' component={Home} />
                             </Suspense> </>) 
                 }
             </Switch>

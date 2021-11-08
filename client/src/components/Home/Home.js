@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Header from '../../Layouts/header'
 
 import {
     Button,
@@ -15,14 +16,15 @@ import { Link as RouterLink, useHistory } from 'react-router-dom';
 import './home.css'
 
 const Home = () => {
-    document.body.style.backgroundColor= "#FFFF";
+    //document.body.style.backgroundColor= "#FFFF";
     const history = useHistory();
     //const { authData } = useAuthContext();
     const [loading, setLoading] = useState(false);
 
 
     return (
-        <Container className="home">
+        <Container className="home" maxWidth={false} paddingLeft={false} paddingRight={false}>
+            <Header />
             <Typography className="title" variant="h1" color="primary">
                 Caro Online
             </Typography>
@@ -32,7 +34,7 @@ const Home = () => {
                 color="primary"
                 size="large"
                 //startIcon={<VideogameAssetRounded />}
-                //onClick={handlePlayNowClick}
+               // onClick={handlePlayNowClick}
                 className="btn-playnow"
             >
                 Play Now
@@ -44,9 +46,9 @@ const Home = () => {
                     variant="contained"
                     color="secondary"
                     size="large"
-                    //startIcon={<ViewListRounded />}
+                   // startIcon={<ViewListRounded />}
                     //component={RouterLink}
-                    to="/room-list"
+                    //to="/room-list"
                 >
                     Room
                 </Button>
@@ -94,7 +96,7 @@ const Home = () => {
                     </div>
                 </DialogContent>
                 <DialogActions>
-                    <Button   color="primary">
+                    <Button color="primary">
                         Cancel
                     </Button>
                 </DialogActions>
