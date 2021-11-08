@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import Header from '../../Layouts/header'
 
 import {
@@ -11,7 +12,6 @@ import {
     Typography,
 } from '@material-ui/core';
 
-import { Link as RouterLink, useHistory } from 'react-router-dom';
 
 import './home.css'
 
@@ -46,9 +46,13 @@ const Home = () => {
                     variant="contained"
                     color="secondary"
                     size="large"
+                    onClick={ () => {
+                        history.push("/roomlist")
+                     }
+                     }
                    // startIcon={<ViewListRounded />}
                     //component={RouterLink}
-                    //to="/room-list"
+                   // herf="/roomlist"
                 >
                     Room
                 </Button>
