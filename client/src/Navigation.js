@@ -7,7 +7,7 @@ import {
 import Home from './components/Home/Home';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
-
+import roomlist from './components/Roomlist/room-list';
 const keyStorage = 'accessToken'
 export default function Navigation() {
     const [token, setToken] = useState('')
@@ -30,8 +30,13 @@ export default function Navigation() {
                 {!token ? <Login exact path='/' setToken={loginSucess} />  :
                         (<> <Suspense fallback={<h1>Loading...</h1>}>
                         <Route path='/home' component={Home} />
-                            </Suspense> </>) 
+                        <Route path='/roomlist' component={roomlist}/>
+                            </Suspense> </>)
                 }
+                      
+                        
+
+              
             </Switch>
             
         </Router>
