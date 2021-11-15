@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
-const PORT = 8797 || process.env.PORT;
 const cors = require('cors');
 const dotenv = require('dotenv');
+
+
 
 const PlayerRouter = require('./routers/authRouter')
 
@@ -14,5 +15,10 @@ app.use(cors())
 //Routers
 app.use(PlayerRouter)
 
-app.listen(PORT, () => { console.log("Server started on http://localhost:" + PORT) })
+app.get("/123", (req, res) => { res.json({ message: "Welcome to bezkoder application." }); });
+
+app.listen(process.env.REACT_APP_SERVER_PORT, () => {
+  console.log(`App server now listening on port ${process.env.REACT_APP_SERVER_PORT}`);
+});
+
 module.exports = app;

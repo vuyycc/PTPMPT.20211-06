@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+
 const jwt = require('jsonwebtoken');
 
 const createToken = require('./utils/utils')
@@ -14,12 +14,12 @@ module.exports.signup = async (req, res) => {
         if(player) {
             res.json({
                 status: 410,
-                error: "Tài khoản đã tồn tại !!"
+                error: "TÃ i khoáº£n Ä‘Ã£ tá»“n táº¡i !!"
             })
         }
 
-        const salt = await bcrypt.genSalt();
-        let hashPassword = await bcrypt.hash(Password, salt);
+        // const salt = await bcrypt.genSalt();
+        // let hashPassword = await bcrypt.hash(Password, salt);
 
         const rad = Math.floor(Math.random()*51);
         const linkAvt = "images/"+rad+".png";
@@ -28,7 +28,7 @@ module.exports.signup = async (req, res) => {
         
         const playerId = await PlayerModel.create({
             Email,
-            Password: hashPassword,
+            Password: Password,
             Avatar: linkAvt,
             Name,
             Gender: "N/A",
@@ -74,9 +74,8 @@ module.exports.login = async (req, res) => {
             })
         }
 
-        const auth = await bcrypt.compare(Password, player.Password);
 
-        if(!auth) {
+        if(Password != player.Password) {
             return res.status(400).json({
                 status: "error",
                 message: "Authentication is incorrect",
