@@ -12,10 +12,12 @@ const keyStorage = 'accessToken'
 export default function Navigation() {
     const [token, setToken] = useState('')
 
-    const loginSucess = (newToken) => {
+    const loginSucess = (newToken, playerId) => {
+
         setToken(newToken)
         console.log(newToken)
         localStorage.setItem(keyStorage, newToken)
+        localStorage.setItem("playerId",playerId)
     }
 
     useEffect(() => {
@@ -27,12 +29,14 @@ export default function Navigation() {
         <Router>
             <Switch>
                 <Route path='/signup' component={SignUp} />
-                {!token ? <Login exact path='/' setToken={loginSucess} />  :
+                {/* {!token ? <Login exact path='/' setToken={loginSucess} />  :
                         (<> <Suspense fallback={<h1>Loading...</h1>}>
                         <Route path='/home' component={Home} />
                         <Route path='/roomlist' component={roomlist}/>
                             </Suspense> </>)
-                }
+                } */}
+                <Route path='/home' component={Home} />
+                <Route path='/roomlist' component={roomlist} />
                       
                         
 

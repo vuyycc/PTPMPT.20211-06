@@ -1,6 +1,6 @@
 import { AppBar, Avatar, IconButton, makeStyles, Toolbar, Typography } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import avatar from '../assets/images/1.png';
 
@@ -26,7 +26,14 @@ const Header = () => {
 
     const classes = useStyles();
     const history = useHistory();
+    const [playerId, setPlayerId] = useState('')
     const [openProfile, setOpenProfile] = useState(false);
+
+    useEffect(() => {
+        let Playerid = localStorage.getItem("playerId")
+        setPlayerId(playerId);
+        
+    }, [])
 
     const handleOpenProfile = async () => {
         setOpenProfile(true);
