@@ -1,0 +1,34 @@
+.history-box {
+    overflow: auto;
+    height: 100%;
+
+    .history {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        p {
+            margin-left: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    }
+
+    .header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        text-align: center;
+
+        p {
+            font-weight: bold;
+            font-size: 16px;
+        }
+    }
+
+    .list-history-item {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}

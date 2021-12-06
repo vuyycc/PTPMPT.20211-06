@@ -1,0 +1,72 @@
+.player-info {
+    flex: 1;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    .host-guest {
+        font-size: 20px;
+        font-weight: bold;
+        margin: 5px auto;
+    }
+
+    .user-group {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+
+        .avatar {
+            height: 60px;
+            width: 60px;
+            margin-bottom: 8px;
+        }
+
+        p {
+            display: flex;
+            align-items: center;
+            font-size: 17px;
+
+            svg {
+                margin-left: 3px;
+                color: rgb(231, 231, 45);
+            }
+        }
+    }
+}
+
+.ready-left::after {
+    content: 'READY';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 70%;
+    border-radius: 10px 0px 0px 10px;
+
+    background-color: rgba(44, 42, 41, 0.801);
+    color: rgb(255, 255, 255);
+    font-family: 'Audiowide', cursive;
+    font-size: 50px;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.ready-right::after {
+    content: 'READY';
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 70%;
+    border-radius: 0px 10px 10px 0px;
+
+    background-color: rgba(44, 42, 41, 0.801);
+    color: rgb(255, 255, 255);
+    font-family: 'Audiowide', cursive;
+    font-size: 50px;
+    text-align: center;
+    padding-top: 50px;
+}

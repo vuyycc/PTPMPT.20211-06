@@ -1,8 +1,8 @@
 version: "3.4"
 
 x-common-variables: &common-variables
-  MYSQL_USER: root
-  MYSQL_PASSWORD:
+  MYSQL_USER: sampleuser
+  MYSQL_PASSWORD: samplepassword
   MYSQL_DATABASE: carodb
   REACT_APP_SERVER_PORT: 8000
 

@@ -1,0 +1,19 @@
+.history-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 80%;
+    height: 30px;
+
+    margin: 5px auto !important;
+    padding: 0px;
+
+    .index {
+        margin-right: 10px;
+    }
+
+    .item {
+        font-weight: bold;
+    }
+}

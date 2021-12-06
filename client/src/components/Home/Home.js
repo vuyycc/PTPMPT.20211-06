@@ -26,7 +26,7 @@ const Home = () => {
         <Container className="home" maxWidth={false} paddingLeft={false} paddingRight={false}>
             <Header />
             <Typography className="title" variant="h1" color="primary">
-                Caro Online
+                Caro Online 123
             </Typography>
 
             <Button

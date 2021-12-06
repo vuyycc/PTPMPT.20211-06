@@ -1,0 +1,28 @@
+.grid-row {
+    margin-top: 10px !important;
+}
+
+.box {
+    border: 2px solid rgb(126, 124, 124);
+    border-radius: 10px;
+    box-shadow: 2px 2px rgb(196, 185, 185);
+}
+
+.row-1 {
+    height: 160px;
+}
+
+.row-2 {
+    height: 340px;
+}
+
+.mt-3 {
+    margin-top: 15px;
+}
+
+.gameplay {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+}
