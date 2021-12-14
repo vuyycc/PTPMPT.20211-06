@@ -22,26 +22,8 @@ Using Nodejs, Reactjs, Socket IO.
 - Screens Game Match: Show chess board, box chat, box voice chat.
 
 # Docker
-## Go into server folder
-$ cd server
-## Install dependencies
-$npm install
-## 1: Running docker:
-If you want to run separate be and ui, just go to folder
-docker build -t [name] . ** After build **
-docker run -dp 3000:8080 [name] 
-Run docker-compose
-Just run
-docker-compose up -d at the folder contain the dockercompose.yml
-After
-If you can use, maybe the database is not ready
 
-run "docker ps" to find the db container
-"docker exec -it [container name] bash" to enter the command line
-"mysql -u root -p"
-"admin"
-"create database carodb;"
-"exit;"
-"exit"
-"docker-compose restart"
-"docker-compose stop".
+## 1: Running docker:
+### docker-compose up -d
+Run docker compose
+
