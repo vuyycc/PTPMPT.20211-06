@@ -8,6 +8,7 @@ import Home from './components/Home/Home';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import roomlist from './components/Roomlist/room-list';
+import Reviewgame from './components/Reviewgame/Reviewgame'
 const keyStorage = 'accessToken'
 export default function Navigation() {
     const [token, setToken] = useState('')
@@ -35,8 +36,10 @@ export default function Navigation() {
                         <Route path='/roomlist' component={roomlist}/>
                             </Suspense> </>)
                 } */}
+                <Route path='/login' component={Login} />
                 <Route path='/home' component={Home} />
                 <Route path='/roomlist' component={roomlist} />
+                <Route path='/Reviewgame' component={Reviewgame} />
                       
                         
 
