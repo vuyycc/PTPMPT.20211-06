@@ -26,7 +26,7 @@ body {
   border-radius: 10%;
   background-color: #ccc;
 }
-.msg-header-lelft .fa.fa-ellipsis-h{
+.msg-header-lelf .fa.fa-ellipsis-h{
   float: right;
   margin-right: 26px;
   margin-top: 10px;
@@ -37,11 +37,15 @@ body {
     margin-top: 55px;
     margin-left: 150px;
 }
+.msg-header-lelf-img p{
+  font-size: 15px;
+  color: #dd4b39;
+}
 .lelf-name{
   overflow: hidden;
   margin-top: 25px;
   text-align: center;
-  
+                              
 }
 .lelf-name p{
   font-size: 16px;
