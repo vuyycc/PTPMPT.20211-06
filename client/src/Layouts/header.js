@@ -2,7 +2,8 @@ import { AppBar, Avatar, IconButton, makeStyles, Toolbar, Typography } from '@ma
 import { useHistory } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import avatar from '../assets/images/1.png';
+import selecUser from '../features/userSlice';
+import { useDispatch, useSelector } from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -28,30 +29,22 @@ const Header = () => {
     const history = useHistory();
     const [playerId, setPlayerId] = useState('')
     const [openProfile, setOpenProfile] = useState(false);
+    const [userCurrent, setUserCurrent] = useState({});
 
     useEffect(() => {
-        let Playerid = localStorage.getItem("playerId")
-        setPlayerId(playerId);
-        
+        let user = localStorage.getItem('user');
+        setUserCurrent(JSON.parse(user));
     }, [])
 
-    const handleOpenProfile = async () => {
-        setOpenProfile(true);
-    };
-
-    const handleCloseProfile = () => {
-        setOpenProfile(false);
-    };
-
     const handleLogout = () => {
-        localStorage.removeItem("accessToken");
-        history.push("/");
+        localStorage.removeItem("user");
+        history.push("/login");
         window.location.reload();
 
     };
 
     return (
-        <AppBar position="static" >
+        <AppBar position="static">
             <Toolbar>
                 <Typography
                     className={classes.title}
@@ -66,15 +59,17 @@ const Header = () => {
                 <IconButton  color="inherit">
                     <Avatar
                         alt="avatar"
-                        src={avatar}
+                        src={userCurrent ? userCurrent.avatar : ""}
                         className={classes.avatar}
                     />
-                    <Typography variant="body1">{" vu test"}</Typography>
+                    <Typography variant="body1">{userCurrent ? userCurrent.username : ""}</Typography>
                 </IconButton>
 
                 <IconButton className={classes.logout} onClick={handleLogout} color="inherit">
                     {/* <ExitToApp className={classes.exit} /> */}
-                    <Typography variant="body1">Logout</Typography>
+                    {
+                        userCurrent ? <Typography variant="body1">Logout</Typography> : <Typography variant="body1">LogIn</Typography>
+                    }
                 </IconButton>
 
                 {/* {openProfile && (

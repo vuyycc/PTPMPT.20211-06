@@ -19,8 +19,10 @@ import { useHistory } from 'react-router-dom';
 import socket from '../../commons/socket';
 import { useAuthContext } from '../../context/AuthContext';
 import './roomlist.scss';
+import Header from '../../Layouts/header'
+import { Redirect } from 'react-router-dom';
 
-const RoomList = () => {
+const RoomList = ({ authorized}) => {
     const { register, handleSubmit, control, errors, setError, reset } = useForm({
         defaultValues: {
             password: '',
@@ -124,6 +126,10 @@ const RoomList = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    if (!authorized) {
+        return < Redirect to="/login" />;
+    }
+
     const handleOpenCreateForm = () => {
         setOpenCreateForm(true);
     };
@@ -195,6 +201,7 @@ const RoomList = () => {
 
     return (
         <div className="room-list">
+            <Header />
             <Paper className="container">
                 <div className="header">
                     <Typography color="primary" variant="h2" className="title">

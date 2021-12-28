@@ -1,4 +1,6 @@
 import { Switch } from "react-router";
+import selecUser from './features/userSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import React, {useState, useEffect, Suspense } from "react";
 import {
     BrowserRouter as Router,
@@ -7,40 +9,34 @@ import {
 import Home from './components/Home/Home';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
-import roomlist from './components/Roomlist/room-list';
-const keyStorage = 'accessToken'
+import Roomlist from './components/Roomlist/room-list';
+
+
 export default function Navigation() {
-    const [token, setToken] = useState('')
+    const userInfo = localStorage.getItem('user');
+    const [user, setUser] = useState(JSON.parse(userInfo));
 
-    const loginSucess = (newToken, playerId) => {
-
-        setToken(newToken)
-        console.log(newToken)
-        localStorage.setItem(keyStorage, newToken)
-        localStorage.setItem("playerId",playerId)
+    const loginSuccess = (user) => {
+       localStorage.setItem('user',JSON.stringify(user));
+        setUser(user);
     }
 
-    useEffect(() => {
-        let token = localStorage.getItem(keyStorage)
-        setToken(token)
-    }, [])
     
     return(
         <Router>
-            <Switch>
-                <Route path='/signup' component={SignUp} />
-                {/* {!token ? <Login exact path='/' setToken={loginSucess} />  :
-                        (<> <Suspense fallback={<h1>Loading...</h1>}>
-                        <Route path='/home' component={Home} />
-                        <Route path='/roomlist' component={roomlist}/>
-                            </Suspense> </>)
-                } */}
-                <Route path='/home' component={Home} />
-                <Route path='/roomlist' component={roomlist} />
-                      
-                        
-
-              
+            <Switch>             
+                <Route exact path='/login' >
+                    <Login setToken={loginSuccess} authorized={user}  />
+                </Route>
+                <Route exact path='/signup' >
+                    <SignUp authorized={user}/>
+                </Route>
+                <Route exact path='/'>
+                    <Home authorized={user}/>
+                </Route>
+                <Route exact path='/roomlist' >
+                    <Roomlist authorized={user} />
+                </Route>
             </Switch>
             
         </Router>

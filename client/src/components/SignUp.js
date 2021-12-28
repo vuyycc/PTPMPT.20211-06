@@ -1,14 +1,21 @@
 import React, { useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
-import { login, signup } from '../axios';
+import { loginUser, signupUser } from '../axios';
+import { Redirect } from 'react-router-dom';
 
 
-export default function SignUp() {
+
+export default function SignUp({ authorized}) {
     //document.body.style.backgroundImage = "url(/images/hinhnen1.png)";
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [rePassword, setRePassword] = useState("");
     const history = useHistory();
+
+
+    if (authorized) {
+        return <Redirect to="/" />
+    }
 
     const handleSubmit = () => {
         if(email == null || password == null || rePassword == null) {
@@ -25,7 +32,7 @@ export default function SignUp() {
         }
         console.log(body);
 
-        signup(body).then(res => {
+        signupUser(body).then(res => {
             console.log(res);
             if( res.status == 200){
                 alert("Đăng ký thành công !!");

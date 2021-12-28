@@ -1,25 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import {login} from  '../axios'
+import { useDispatch, useSelector } from 'react-redux'
+import {login} from "../features/userSlice"
+import {loginUser} from  '../axios'
+import { Redirect } from 'react-router-dom';
 
-export default function Login({setToken}) {
+export default function Login({ setToken, authorized}) {
     //document.body.style.backgroundImage = "url(/images/hinhnen1.png)";
+    const dispatch = useDispatch();
+    const userReducer = useSelector(state => state.userReducer)
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')
+    const [checkLogin, setCheck] = useState(false);
     const history = useHistory();
 
-    const loginBtn = async () => {
+
+    if (authorized) {
+        return <Redirect to="/" />
+    }
+
+
+    const loginBtn = async (e) => {
         try {
             let body = {
                 Email: email,
                 Password: pass
             }
-            const result = await login(body)
-            console.log(result);
-            setToken(result.data.data.token);
-            history.push("/home")
+            const result = await loginUser(body)
+
+            if (result.data.data.token) {
+                const userInfo = result.data.data.playerInfo;
+                userInfo.accessToken = result.data.data.token;
+                setToken(userInfo);
+                e.preventDefault();
+
+            dispatch(login(userInfo))
+                alert("Đăng nhập thành công !!")
+                history.push("/")
+            }
+           
         }catch (err) {
             console.log('error',err);
+            alert("Sai tài khoản hoặc mật khẩu");
         }
     }
 

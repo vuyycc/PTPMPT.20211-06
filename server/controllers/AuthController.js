@@ -14,7 +14,7 @@ module.exports.signup = async (req, res) => {
         if(player) {
             res.json({
                 status: 410,
-                error: "TÃ i khoáº£n Ä‘Ã£ tá»“n táº¡i !!"
+                error: "Tai khoan da ton tai !!"
             })
         }
 
@@ -27,16 +27,11 @@ module.exports.signup = async (req, res) => {
 
         
         const playerId = await PlayerModel.create({
-            Email,
-            Password: Password,
-            Avatar: linkAvt,
-            Name,
-            Gender: "N/A",
-            Score: 0,
-            MatchCount: 0,
-            WinCount: 0,
-            LoseCount: 0,
-            Rank: -1
+            email: Email,
+            password: Password,
+            avatar: linkAvt,
+            username: Name,
+            status: 0,
         });
         res.status(200).json({
             status: 'success',
@@ -56,7 +51,7 @@ module.exports.login = async (req, res) => {
         if(!Email || !Password) {
             return res.status(400).json({
                 status: "error",
-                nessage: "Aythentication is incorrect",
+                nessage: "Authentication is incorrect",
                 errors: {
                     Email: !Email && "Email is required",
                     Password: !Password && "Password is required",
@@ -75,7 +70,7 @@ module.exports.login = async (req, res) => {
         }
 
 
-        if(Password != player.Password) {
+        if(Password != player.password) {
             return res.status(400).json({
                 status: "error",
                 message: "Authentication is incorrect",
