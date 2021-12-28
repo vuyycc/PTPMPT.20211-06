@@ -2,12 +2,19 @@
 const mysql = require('mysql');
 const util = require('util');
 
+// const pool = mysql.createPool({
+//     host: process.env.MYSQL_HOST_IP,
+//     user: process.env.MYSQL_USER,
+//     password: process.env.MYSQL_PASSWORD,
+//     database: process.env.MYSQL_DATABASE,
+//   });
+
 const pool = mysql.createPool({
-    host: process.env.MYSQL_HOST_IP,
-    user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASSWORD,
-    database: process.env.MYSQL_DATABASE,
-  });
+    host: '127.0.0.1',
+    user: 'root',
+    password: '',
+    database: 'caro',
+});
 
 pool.getConnection((err, connection) => {
     if(err) {

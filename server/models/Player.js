@@ -2,28 +2,28 @@ const carodb = require('./carodb');
 
 module.exports = {
     findByEmail: async ( Email) => {
-        const result  = await carodb.get('player',{Email})
+        const result  = await carodb.get('user',{Email})
         return result[0];
     }, 
     findById: async (playerId) => {
-        const results = await carodb.get('player', { playerId });
+        const results = await carodb.get('user', { playerId });
         return results[0];
     },
 
     create: async (player) => {
-        const result = await carodb.add('player', player);
+        const result = await carodb.add('user', player);
         return result.insertId;
     },
 
     getAllPlayers: async () => {
-        return carodb.getAll('player');
+        return carodb.getAll('user');
     },
 
     delete: async (playerId) => {
-        return carodb.delete('player', {ID: playerId})
+        return carodb.delete('user', {ID: playerId})
     },
 
-    update: (entity, condition) => db.update('player',entity, condition),
+    update: (entity, condition) => db.update('user',entity, condition),
     findBySearchText: async (searchText) => {
         return carodb.load(
             `SELECT * FROM player WHERE MATCH (fullname) against ('${searchText}' IN NATURAL LANGUAGE MODE)
@@ -33,7 +33,7 @@ module.exports = {
     },
     getTop10: async() => {
         return carodb.load(
-            `SELECT TOP(10) * FROM player ORDER BY Score DESC`
+            `SELECT TOP(10) * FROM user ORDER BY Score DESC`
         )
     }
 

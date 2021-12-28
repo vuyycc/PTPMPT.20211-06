@@ -15,10 +15,8 @@ app.use(cors())
 //Routers
 app.use(PlayerRouter)
 
-app.get("/123", (req, res) => { res.json({ message: "Welcome to bezkoder application." }); });
-
-app.listen(process.env.REACT_APP_SERVER_PORT, () => {
-  console.log(`App server now listening on port ${process.env.REACT_APP_SERVER_PORT}`);
+app.listen(process.env.REACT_APP_SERVER_PORT || 8000, () => {
+  console.log(`App server now listening on port ${process.env.REACT_APP_SERVER_PORT || 8000}`);
 });
 
 module.exports = app;

@@ -1,0 +1,124 @@
+*{
+    margin:0;
+    padding:0;
+    border:none;
+    font-family: 'Open Sans', sans-serif;
+}
+body {
+  
+    font-family: 'Raleway', sans-serif;
+    
+    
+}
+#menu{
+    height: 70px;
+    background-color: #44F514;
+    
+    
+}
+#menu p{
+    padding-top: 15px;
+    padding-left: 40px;
+    font-size: 30px;
+}
+#menu ul{
+    margin: 0px;
+    padding: 0px;
+}
+#menu ul li{
+    list-style: none;
+
+}
+#menu ul li a{
+    float: right;
+    margin-right: 60px;
+    margin-top: -60px;
+    text-decoration: none;
+    display: block;
+    outline:none;
+    text-indent: 25px;
+    color: white;
+    font-size: 23px;
+}
+#banner{
+    height: auto;
+    
+    text-align: center;
+    justify-content: center;
+    
+}
+#banner h1{
+    margin-top: 50px;
+    font-size: 80px;
+    color: #F5132D;
+}
+.form {
+    border: 1px solid #80808000;
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border-radius: 15px;
+    box-shadow: 0px 0px 14px 0px grey;
+    background-color: white;
+    text-decoration:none;
+    margin:auto;
+    
+}
+.rank-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    border-bottom: 2px solid rgb(173, 160, 160);
+    box-shadow: 3px 3px rgba(211, 205, 205, 0.445);
+
+   
+}
+    .index {
+        flex: 2;
+        text-align: center;
+    }
+    span {
+        border: 1px solid #000;
+        border-radius: 50%;
+        padding-left: 8px;
+        padding-right: 8px;
+
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .user-info {
+        flex: 2;
+
+        display: flex;
+        text-align: left;
+
+       
+    }
+    
+    p {
+        margin-left: 10px;
+        white-space: nowrap;
+        width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 20px;
+    }
+
+    .cups {
+        flex: 2;
+
+        display: flex;
+        align-items: center;
+    }
+    p {
+        margin-left: 4px;
+    }
+    i{
+        font-size: 20px;
+        margin-right: 10px;
+    }

@@ -5,11 +5,11 @@ let instantAxios = axios.create({
     baseURL: 'http://localhost:8000'
 })
 
-export const login = (body) => {
+export const loginUser = (body) => {
     return instantAxios.post('/login',body)
 }
 
-export const signup = (body) => {
+export const signupUser = (body) => {
     return instantAxios.post('/signup',body)
 }
 

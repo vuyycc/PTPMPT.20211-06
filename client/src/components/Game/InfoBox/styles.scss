@@ -1,0 +1,50 @@
+.info-box {
+    padding: 15px 10px;
+
+    .room-info {
+        border-bottom: 2px solid rgb(35, 21, 58);
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+
+        .wrapper {
+            display: flex;
+            margin-bottom: 5px;
+
+            p {
+                margin-left: 5px;
+                font-weight: 500;
+            }
+        }
+
+        .group-info {
+            display: flex;
+            width: 50%;
+            justify-content: space-between;
+        }
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: 6fr 4fr;
+        margin-top: 10px;
+        height: 70px;
+
+        .viewer-list {
+            p {
+                font-weight: bold;
+                text-transform: uppercase;
+                text-align: center;
+            }
+        }
+
+        .button-group {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            align-items: center;
+
+            border-left: 1px solid rgba(0, 0, 0, 0.534);
+        }
+    }
+}
