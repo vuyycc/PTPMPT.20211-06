@@ -1,0 +1,22 @@
+.layout {
+}
+
+.online-user {
+    .btn-online-user {
+        position: fixed;
+        bottom: 60px;
+        right: 50px;
+
+        color: #fff;
+        background-color: #113270;
+        border-radius: 50%;
+        padding: 5px;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.4);
+            opacity: 0.9;
+        }
+    }
+}
