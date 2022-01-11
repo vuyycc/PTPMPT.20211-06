@@ -1,5 +1,5 @@
 import SocketIOClient from 'socket.io-client';
-const baseURL = process.env.REACT_APP_USER_BASE_URL;
+const baseURL = 'http://localhost:8000';
 
 const userInfo = JSON.parse(localStorage.getItem('userInfo'));
 

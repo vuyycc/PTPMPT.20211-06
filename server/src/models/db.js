@@ -3,6 +3,7 @@ const util = require('util');
 
 const pool = mysql.createPool({
   host: process.env.HOST,
+  port: process.env.PORT_SQL,
   user: process.env.USER,
   password: process.env.PASSWORD,
   database: process.env.DATABASE,
@@ -18,6 +19,7 @@ pool.getConnection((err, connection) => {
       console.error('Database has too many connections.');
     }
     if (err.code === 'ECONNREFUSED') {
+    
       console.error('Database connection was refused.');
     }
   }

@@ -15,7 +15,7 @@ const app = express();
 const server = http.createServer(app);
 
 // Config
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 8000;
 // const io = socketIO(server);
 const io = socketIO(server, {
   cors: {

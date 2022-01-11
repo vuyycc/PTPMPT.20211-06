@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const axiosUser = axios.create({
-    baseURL: process.env.REACT_APP_USER_BASE_URL,
+    baseURL: 'http://localhost:8000',
 });
 
 axiosUser.interceptors.request.use(
